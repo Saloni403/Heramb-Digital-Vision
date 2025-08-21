@@ -505,12 +505,17 @@
 
         // Add lg-empty-html class if title doesn't exist
         if (typeof subHtml !== 'undefined' && subHtml !== null) {
-            if (subHtml === '') {
-                this.$outer.find(this.s.appendSubHtmlTo).addClass('lg-empty-html');
-            } else {
-                this.$outer.find(this.s.appendSubHtmlTo).removeClass('lg-empty-html');
-            }
-        }
+              if (subHtml === '') {
+        subHtml = "Heramb Digital Vision"; // 👈 put your name here
+        this.$outer.find(this.s.appendSubHtmlTo).removeClass('lg-empty-html').html(subHtml);
+    } else {
+        this.$outer.find(this.s.appendSubHtmlTo).removeClass('lg-empty-html').html(subHtml);
+    }
+} else {
+    // If subHtml is undefined or null, also add your name
+    subHtml = "Heramb Digital Vision"; 
+    this.$outer.find(this.s.appendSubHtmlTo).html(subHtml);
+}
 
         this.$el.trigger('onAfterAppendSubHtml.lg', [index]);
     };
